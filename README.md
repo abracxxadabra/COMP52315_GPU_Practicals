@@ -7,14 +7,14 @@ Please tackle the tasks yourself first, before looking at the solutions :-)
 `srun -N 1 --gres=gpu:1 --partition=tpg-gpu-small --pty /bin/bash`
 
 ## Compilation of OpenMP code with CPU and GPU support
-module load nvidia-hpc
+`module load nvidia-hpc`
 
-nvc++ -fopenmp -mp=gpu test.cpp -o test_executable
+`nvc++ -fopenmp -mp=gpu test.cpp -o test_executable`
 
 ## Environment variables to adjust the number of threads used by OpenMP
-OMP_NUM_THREADS
+`OMP_NUM_THREADS`
 
-OMP_THREAD_LIMIT
+`OMP_THREAD_LIMIT`
 
-OMP_NUM_TEAMS
+`OMP_NUM_TEAMS`
 

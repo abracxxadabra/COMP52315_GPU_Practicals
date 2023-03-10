@@ -47,14 +47,13 @@ int main(int argc, char **argv)
   std::cout << "\n";
 
   //----- Task 3 -----//
-  // Consider Section 4.9.2. of the SYCL specification:
-  // https://registry.khronos.org/SYCL/specs/sycl-2020/pdf/sycl-2020.pdf
-  // Based thereon, write a SYCL programme that computes the accumulated sum of the elements of a vector.
+  // Write a SYCL programme that computes the accumulated sum of the elements of a vector.
   
-  // Naive implementation with a global atomic variable
+  // Start out with a naive implementation with a global atomic variable.
   // For more performant solutions, see: 
   // https://www.intel.com/content/www/us/en/develop/documentation/oneapi-gpu-optimization-guide/top/kernels/reduction.html
   // Please note that clang++ does not support the built-in reduction as proposed by the Intel extensions.
+  
   std::vector<double> u(N);
   for(auto& i : x) i = 1.0;
   double acc_u = 0;

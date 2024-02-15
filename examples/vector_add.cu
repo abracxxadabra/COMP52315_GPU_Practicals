@@ -65,32 +65,21 @@ int main(int argc, char* argv[])
 		y[i] = 2.0;
 	}
 
-	cudaError_t error;
 	cudaMalloc(&x_d, sizeof(float) * N);
 	cudaMalloc(&y_d, sizeof(float) * N);
 	cudaMalloc(&z_d, sizeof(float) * N);
-  	error=cudaGetLastError();
-  	if(error != cudaSuccess) printf("CUDA error mall: %s\n", cudaGetErrorString(error));
 
 	cudaMemcpy(x_d, x, sizeof(float) * N, cudaMemcpyHostToDevice);
-  	error=cudaGetLastError();
-  	if(error != cudaSuccess) printf("CUDA error mall: %s\n", cudaGetErrorString(error));
 	cudaMemcpy(y_d, y, sizeof(float) * N, cudaMemcpyHostToDevice);
-  	error=cudaGetLastError();
-  	if(error != cudaSuccess) printf("CUDA error mall: %s\n", cudaGetErrorString(error));
 
 	int block_size = 64;
 	int grid_size = N/block_size + (N%block_size != 0);
 
 	vector_add_simple_gpu<<<grid_size, block_size>>>(x_d, y_d, z_d, N);
-  	error=cudaGetLastError();
-  	if(error != cudaSuccess) printf("CUDA error mall: %s\n", cudaGetErrorString(error));
 	cudaDeviceSynchronize();
 
 	cudaMemcpy(z, z_d, sizeof(float) * N, cudaMemcpyDeviceToHost);
-  	error=cudaGetLastError();
-  	if(error != cudaSuccess) printf("CUDA error mall: %s\n", cudaGetErrorString(error));
-
+  	
 	for(int i = 0; i < N; i++)
 	{
 		std::cout << z[i] << " ";

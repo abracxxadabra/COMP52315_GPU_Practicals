@@ -10,7 +10,7 @@ Once there, execute the following to access a GPU node:
 `srun -c 2 --gres=gpu:1 --partition=tpg-gpu-small --pty /bin/bash`
 
 ## Compilation of CUDA code on NCC
-`module load cuda`
+`module load cuda/12.0`
 
 `nvcc your_source_code.cu -o your_executable`
 

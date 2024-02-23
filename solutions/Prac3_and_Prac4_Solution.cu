@@ -79,14 +79,6 @@ __global__ void kernel_f_d(int* a, int* b, int* c, int* res_d) {
 //   std::cout << fs.count() << "s\n";
 //   std::cout << d.count() << "ms\n";
 
-// ----- Task 4 -----//
-// Write a CUDA kernel that uses dynamic parallelism to launch exactly one child grid per threadblock in the parent grid. 
-// Print the global thread indices of all threads in each child grid.
-__global__ void dynamic_kernel()
-{
-	printf("TODO");
-}
-
 //----- Code Template -----//
 
 int main(int argc, char **argv) {

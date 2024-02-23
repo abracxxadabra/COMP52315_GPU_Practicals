@@ -59,12 +59,7 @@ int f_d(const int a, const int b, const int c) {
 //   std::cout << d.count() << "ms\n";
 
 // ----- Task 4 -----//
-// Write a CUDA kernel that uses dynamic parallelism to launch exactly one child grid per threadblock in the parent grid. 
-// Print the global thread indices of all threads in each child grid.
-__global__ void dynamic_kernel()
-{
-	printf("TODO");
-}
+// Use the Nvidia Nsight Compute Profiler to explore the performance characteristics of the code for Task 1.
 
 //----- Code Template -----//
 

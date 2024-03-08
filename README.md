@@ -19,10 +19,16 @@ Once there, execute the following to access a GPU node:
 
 `nvc++ -fopenmp -mp=gpu test.cpp -o test_executable`
 
-## Environment variables to adjust the number of threads used by OpenMP
+### Environment variables to adjust the number of threads used by OpenMP
 `OMP_NUM_THREADS`
-
-`OMP_THREAD_LIMIT`
 
 `OMP_NUM_TEAMS`
 
+`OMP_THREAD_LIMIT`
+
+Pkease note that these are upper bounds and do not guarantee that the ocde is executed with this exact number of threads. For instance, slurm might overwrite these values dependent on the reservation parameters.
+
+## Compilation of SYCL code on NCC
+`module load llvm-clang`
+`module load cuda/11.5`
+`clang++ -fsycl -fsycl-targets=nvptx64-cuda my_source_code.cpp -o my_executable`
